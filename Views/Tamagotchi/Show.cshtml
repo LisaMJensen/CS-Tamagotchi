@@ -1,6 +1,20 @@
-<h1>Tamagotchi List Details: </h1>
+<h1>@Model.Description's Details: </h1>
 
-<h2>@Model.Description</h2>
+<h2>Name: @Model.Description</h2>  
+
+<h2>Food Level: @Model.FoodLevel</h2>  
+<form action="/tamagotchi/feed" method="post">
+  <button type="submit" name="button">Feed it</button>
+</form>
+<h2>Attention Level: @Model.AttentionLevel</h2>  
+<form action="/tamagotchi/pet" method="post">
+  <button type="submit" name="button">Pet it</button>
+</form>
+<h2>Sleep Level: @Model.SleepLevel</h2>  
+<form action="/tamagotchi/tranq" method="post">
+  <button type="submit" name="button">Read a bedtime story</button>
+</form>
+
 
 <a href='/tamagotchi/new'>Add another Tamagotchi</a>
 <a href='/tamagotchi'>View all Tamagotchi</a>

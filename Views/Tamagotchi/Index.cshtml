@@ -7,7 +7,7 @@
 <ul>
     @foreach (Tamagotchi Tamagotchi in Model)
     {
-      <li><a href='/tamagotchi/@Tamagotchi.Id'>@Tamagotchi.Description</a></li>
+      <li><a href='/tamagotchi/@Tamagotchi.Id'>@Tamagotchi.Description   Food Level:@Tamagotchi.FoodLevel Attention Level:@Tamagotchi.AttentionLevel Sleep Level:@Tamagotchi.SleepLevel</a></li>
     }
 </ul>
 
