@@ -41,24 +41,43 @@ namespace TamagotchiList.Controllers
             return View(foundTamagotchi);
         }
 
-        [HttpPost("/tamagotchi/feed")]
-        public ActionResult do something that feeds 1, and subtracts from all others
+        [HttpPost("/tamagotchi/feed/{id}")]
+        public ActionResult ChangeFood(int id)
         {
-
-        }
-    [HttpPost("/tamagotchi/pet")]
-    public ActionResult do something that pets 1, and subtracts from all others
-        {
-            
+            Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
+            foundTamagotchi.FoodLevel += 5;
+            return View("Show", foundTamagotchi);
         }
 
-[HttpPost("/tamagotchi/tranq")]
-public ActionResult do something that tranqs 1, and subtracts from all others
+
+        [HttpPost("/tamagotchi/pet/{id}")]
+        public ActionResult ChangeHappy(int id)
         {
-            
+            Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
+            foundTamagotchi.AttentionLevel += 5;
+            return View("Show", foundTamagotchi);
         }
-        
-        
+        [HttpPost("/tamagotchi/tranq/{id}")]
+        public ActionResult ChangeEnergy(int id)
+        {
+            Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
+            foundTamagotchi.SleepLevel += 5;
+            return View("Show", foundTamagotchi);
+        }
+
+        //     [HttpPost("/tamagotchi/pet")]
+        //     public ActionResult do something that pets 1, and subtracts from all others
+        //         {
+
+        //         }
+
+        // [HttpPost("/tamagotchi/tranq")]
+        // ActionResult do something that tranqs 1, and subtracts from all others
+        //         {
+
+        //         }
+
+
 
     }
 }
