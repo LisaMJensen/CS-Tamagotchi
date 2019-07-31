@@ -77,6 +77,9 @@ namespace TamagotchiList.Controllers
         [HttpPost("/tamagotchi/tranq/{id}")]
         public ActionResult ChangeEnergy(int id)
         {
+            Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
+            foundTamagotchi.SleepLevel += 6;
+
             List<Tamagotchi> listTamagotchi = Tamagotchi.GetAll();
             foreach (Tamagotchi tamagotchi in listTamagotchi)
             {
@@ -84,22 +87,23 @@ namespace TamagotchiList.Controllers
                 tamagotchi.AttentionLevel -= 1;
                 tamagotchi.SleepLevel -= 1;
             }
-            Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
-            foundTamagotchi.SleepLevel += 6;
+            List<Tamagotchi> deadList = new List<Tamagotchi> { };
+            foreach (Tamagotchi tamagotchi in listTamagotchi)
+                if (tamagotchi.FoodLevel == 0 | tamagotchi.AttentionLevel == 0 | tamagotchi.SleepLevel == 0)
+                {
+                    deadList.Add(tamagotchi);
+                    return View("Cemetary", deadList);
+                }
+
             return View("Show", foundTamagotchi);
         }
 
-        //     [HttpPost("/tamagotchi/pet")]
-        //     public ActionResult do something that pets 1, and subtracts from all others
-        //         {
+        // [HttpPost("/tamagotchi/{id}")]
+        // public ActionResult CheckHealth()
+        // {
 
-        //         }
+        // }
 
-        // [HttpPost("/tamagotchi/tranq")]
-        // ActionResult do something that tranqs 1, and subtracts from all others
-        //         {
-
-        //         }
 
 
 

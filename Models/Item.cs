@@ -14,9 +14,9 @@ namespace TamagotchiList.Models
         public Tamagotchi(string description, int foodLevel, int attentionLevel, int sleepLevel)
         {
             Description = description;
-            this.FoodLevel = 11;
-            this.AttentionLevel = 11;
-            this.SleepLevel = 11;
+            this.FoodLevel = 5;
+            this.AttentionLevel = 5;
+            this.SleepLevel = 5;
 
             _instances.Add(this);
             Id = _instances.Count;
@@ -37,6 +37,7 @@ namespace TamagotchiList.Models
             return _instances[searchId - 1];
         }
 
+        public List<Tamagotchi> deadList = new List<Tamagotchi> { };
 
 
     }

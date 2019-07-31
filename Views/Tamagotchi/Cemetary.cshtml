@@ -1,0 +1,10 @@
+@using TamagotchiList.Models
+@using TamagotchiList.Controllers
+<h1>These Tamagotchi have died due to neglect :( </h1>
+<ul>
+    @foreach (Tamagotchi tamagotchi in Model)
+    {
+    <li><a href='/tamagotchi/tranq/{id}'>@tamagotchi.Description</a></li>
+    }
+</ul>
+<p><a href="/tamagotchi">Back to homepage.</a></p>
