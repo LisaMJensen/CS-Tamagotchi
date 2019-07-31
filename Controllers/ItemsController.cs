@@ -44,8 +44,15 @@ namespace TamagotchiList.Controllers
         [HttpPost("/tamagotchi/feed/{id}")]
         public ActionResult ChangeFood(int id)
         {
+            List<Tamagotchi> listTamagotchi = Tamagotchi.GetAll();
+            foreach (Tamagotchi tamagotchi in listTamagotchi)
+            {
+                tamagotchi.FoodLevel -= 1;
+                tamagotchi.AttentionLevel -= 1;
+                tamagotchi.SleepLevel -= 1;
+            }
             Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
-            foundTamagotchi.FoodLevel += 5;
+            foundTamagotchi.FoodLevel += 6;
             return View("Show", foundTamagotchi);
         }
 
@@ -53,15 +60,32 @@ namespace TamagotchiList.Controllers
         [HttpPost("/tamagotchi/pet/{id}")]
         public ActionResult ChangeHappy(int id)
         {
+
+
+            List<Tamagotchi> listTamagotchi = Tamagotchi.GetAll();
+            foreach (Tamagotchi tamagotchi in listTamagotchi)
+            {
+                tamagotchi.FoodLevel -= 1;
+                tamagotchi.AttentionLevel -= 1;
+                tamagotchi.SleepLevel -= 1;
+            }
+
             Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
-            foundTamagotchi.AttentionLevel += 5;
+            foundTamagotchi.AttentionLevel += 6;
             return View("Show", foundTamagotchi);
         }
         [HttpPost("/tamagotchi/tranq/{id}")]
         public ActionResult ChangeEnergy(int id)
         {
+            List<Tamagotchi> listTamagotchi = Tamagotchi.GetAll();
+            foreach (Tamagotchi tamagotchi in listTamagotchi)
+            {
+                tamagotchi.FoodLevel -= 1;
+                tamagotchi.AttentionLevel -= 1;
+                tamagotchi.SleepLevel -= 1;
+            }
             Tamagotchi foundTamagotchi = Tamagotchi.Find(id);
-            foundTamagotchi.SleepLevel += 5;
+            foundTamagotchi.SleepLevel += 6;
             return View("Show", foundTamagotchi);
         }
 
